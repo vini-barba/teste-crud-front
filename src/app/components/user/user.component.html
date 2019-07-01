@@ -1,0 +1,67 @@
+<div class="form mx-2">
+  <div class="row">
+    <div class="col-12 col-md-6">
+      <div class="form-grup">
+        <label>Nome:</label>
+        <input
+          type="text"
+          class="form-control"
+          name="userName"
+          [(ngModel)]="userName"
+          placeholder="Nome"
+        />
+      </div>
+    </div>
+    <div class="col-12 col-md-6">
+      <div class="form-grup">
+        <label>Email:</label>
+        <input
+          type="email"
+          class="form-control"
+          name="userEmail"
+          [(ngModel)]="userEmail"
+          placeholder="email@teste.com"
+        />
+      </div>
+    </div>
+  </div>
+
+  <hr />
+  <div class="row">
+    <div class="col-12 d-flex justify-content-end">
+      <button
+        class="btn btn-primary"
+        (click)="this.create(userName, userEmail)"
+      >
+        Salvar
+      </button>
+    </div>
+  </div>
+</div>
+
+<table class="table mt-4">
+  <thead>
+    <tr>
+      <th>Nome:</th>
+      <th>Email</th>
+      <th>Excluir</th>
+      <th>Editar</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of users">
+      <td>{{ user.nome }}</td>
+      <td>{{ user.email }}</td>
+      <td>
+        <button class="btn btn-danger ml-2" (click)="this.delete(user)">
+          <i class="fa fa-trash"></i>
+        </button>
+      </td>
+      <td>
+        <button class="btn btn-warning ml-2" (click)="this.update(user)">
+          <i class="fas fa-edit"></i>
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>
